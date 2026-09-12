@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>袁宝珠 | AIGC 编导 · 动画编导 · 自媒体创作者</title>
+  <meta name="description" content="袁宝珠的个人作品集：AIGC 编导 / 动画编导 / 自媒体创作者，代表作《骸生万物》世界观场景概念设计、《日常》漫画分镜。" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="home">
+
+  <!-- ============ 顶部导航 ============ -->
+  <header class="navbar" id="navbar">
+    <nav class="nav-inner">
+      <a href="#home" class="nav-logo">袁宝珠</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#works">作品</a></li>
+        <li><a href="#about">关于</a></li>
+        <li><a href="#contact">联系</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ Hero 首屏（原创插画 · Live2D 视差） ============ -->
+    <section class="hero hero--live" id="home">
+      <!-- 背景层：封面全屏模糊（视差最深 · Live2D 感） -->
+      <div class="live-bg" aria-hidden="true">
+        <span class="live-bg-img"></span>
+        <span class="live-bg-tint"></span>
+      </div>
+
+      <!-- 氛围层：双色光晕 -->
+      <div class="live-glow" aria-hidden="true">
+        <span class="live-glow-cyan"></span>
+        <span class="live-glow-orange"></span>
+      </div>
+
+      <div class="live-inner">
+        <!-- 文案层（视差较浅） -->
+        <div class="live-copy" data-depth="8">
+          <p class="hero-eyebrow">你好，我是</p>
+          <h1 class="hero-title">袁宝珠</h1>
+          <p class="hero-subtitle">AIGC 编导 / 动画编导 / 自媒体创作者</p>
+          <div class="hero-actions">
+            <a href="#works" class="btn btn-primary">查看作品</a>
+            <a href="#contact" class="btn btn-ghost">联系我</a>
+          </div>
+        </div>
+      </div>
+
+      <a href="#works" class="live-scroll" aria-label="向下滚动查看作品">
+        <span></span>SCROLL
+      </a>
+    </section>
+
+    <!-- ============ 作品展示（卡片占位） ============ -->
+    <section class="section" id="works">
+      <div class="container">
+        <header class="section-head">
+          <h2 class="section-title">精选作品</h2>
+          <p class="section-desc">世界观概念设计 · 漫画分镜 · 纪实短片脚本 · AIGC 影像创作，点击卡片查看完整项目。</p>
+        </header>
+
+        <div class="works-grid">
+          <!-- 作品 01：《骸生万物》 -->
+          <article class="work-card">
+            <a href="works/work-1.html" class="work-link" aria-label="《骸生万物》世界观场景概念设计">
+              <div class="work-cover has-img">
+                <img src="images/hszw-1-forest.jpg" alt="《骸生万物》森林栖息地：巨型菌菇树居" />
+              </div>
+              <div class="work-body">
+                <h3 class="work-title">《骸生万物》世界观场景概念设计</h3>
+                <p class="work-desc">古早原始纪元，三大族群在巨兽遗骸塑造的世界中生存博弈，与万物共生。</p>
+                <ul class="work-tags">
+                  <li>世界观设定</li><li>场景概念</li><li>水彩 · AIGC</li>
+                </ul>
+              </div>
+            </a>
+          </article>
+
+          <!-- 作品 02：《日常》漫画分镜 -->
+          <article class="work-card">
+            <a href="works/work-2.html" class="work-link" aria-label="《日常》漫画分镜">
+              <div class="work-cover has-img">
+                <img src="images/work-2-cover.jpg" alt="《日常》漫画分镜封面">
+              </div>
+              <div class="work-body">
+                <h3 class="work-title">《日常》漫画分镜</h3>
+                <p class="work-desc">拖延大学生被诈骗短信与流浪白猫「催债」，催出毕设灵感《催债猫》的日常喜剧。</p>
+                <ul class="work-tags">
+                  <li>原创漫画分镜</li><li>故事板</li><li>日常喜剧</li>
+                </ul>
+              </div>
+            </a>
+          </article>
+
+          <!-- 作品 03：《维瑞蒂》 -->
+          <article class="work-card">
+            <a href="works/work-3.html" class="work-link" aria-label="《维瑞蒂》未来科技机械人外世界观与角色概念设计">
+              <div class="work-cover">
+                <img class="wrd-card-img" src="images/wrd-1-verity.png" alt="《维瑞蒂》主角维瑞蒂 / 乔伊·索伦 概念设计" />
+                <span class="work-cover-tag">初版概念设计</span>
+              </div>
+              <div class="work-body">
+                <h3 class="work-title">《维瑞蒂》</h3>
+                <p class="work-desc">未来科技 · 机械人外。刑警之女带着 114 机器人，以“乔伊·索伦”之名夺回真相与自己的名字。</p>
+                <ul class="work-tags">
+                  <li>世界观</li><li>机械人外</li><li>角色设计</li><li>未来科技</li>
+                </ul>
+              </div>
+            </a>
+          </article>
+
+          <!-- 作品 04：《AIGC 编导脚本集》 -->
+          <article class="work-card">
+            <a href="works/work-4.html" class="work-link" aria-label="《AIGC 编导脚本集》分镜式纪实脚本">
+              <div class="work-cover has-img">
+                <img src="images/scr-ka-real.webp" alt="《AIGC 编导脚本集》真实影像：抗癌厨房万佐成与熊庚香" />
+              </div>
+              <div class="work-body">
+                <h3 class="work-title">《AIGC 编导脚本集》</h3>
+                <p class="work-desc">四部分镜式纪实脚本：《从未放下》《福贵》《大博》《抗癌厨房》——每一场既在讲故事，也在设计镜头和剪辑。</p>
+                <ul class="work-tags">
+                  <li>纪实短片</li><li>分镜式脚本</li><li>镜头设计</li><li>剪辑节奏</li>
+                </ul>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card">
+            <a href="works/work-5.html" class="work-link" aria-label="《熵减旅者》原创游戏世界观设定">
+              <div class="work-cover">
+                <span class="work-cover-tag">GAME WORLDVIEW</span>
+              </div>
+              <div class="work-body">
+                <h3 class="work-title">《熵减旅者》游戏世界观设定</h3>
+                <p class="work-desc">普通女大穿越无数真实宇宙，用念化解心魔、用战斗斩杀熵魔，治愈“发炎的世界”——但每治好一个别人，她自己的世界就离消亡更近一步。</p>
+                <ul class="work-tags">
+                  <li>原创游戏世界观</li><li>无限流穿越</li><li>战斗 × 念之双路径</li><li>OE 结局</li>
+                </ul>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card">
+            <a href="works/work-6.html" class="work-link" aria-label="创作经历与技能">
+              <div class="work-cover">
+                <span class="work-cover-tag">SKILLS</span>
+              </div>
+              <div class="work-body">
+                <h3 class="work-title">创作经历与技能</h3>
+                <p class="work-desc">项目之外的创作经历补充：接触过 AIGC 生视频流程，业余接插画约稿，也发过二创小说、游戏实况、绘画与美妆内容，涉及四个平台（均为零散更新），其中游戏实况的数据相对好一些。</p>
+                <ul class="work-tags">
+                  <li>视频剪辑</li><li>AIGC</li><li>插画约稿</li><li>二创小说</li><li>内容创作</li><li>游戏实况</li>
+                </ul>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 关于 ============ -->
+    <section class="section section-alt" id="about">
+      <div class="container about-grid">
+        <div class="about-avatar">
+          <img src="images/about-portrait.jpg" alt="袁宝珠——寸头与蓝色烟熏妆自拍" />
+        </div>
+        <div>
+          <h2 class="section-title">关于我</h2>
+          <p class="about-text">
+            我是袁宝珠，动漫设计专业出身，一名正在求职的内容创作者。
+            这个网站是我给自己做的作品集：里面从世界观设定、场景概念、漫画分镜，到 AIGC 编导脚本和游戏世界观策划，都是我自己构思、自己动手完成的。
+          </p>
+          <p class="about-text">
+            项目之外，我也在接插画约稿、做视频剪辑，并尝试用 AIGC 流程生产视频内容。
+            我最喜欢的事始终是用画面讲故事——如果你觉得这些能力适合你的团队或岗位，欢迎通过下方邮箱联系我。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 联系 ============ -->
+    <section class="section" id="contact">
+      <div class="container contact-box">
+        <h2 class="section-title">联系方式</h2>
+        <p class="section-desc">我是一名正在求职的设计爱好者，如有合适的岗位或机会，欢迎随时联系。</p>
+        <a href="mailto:2928236242@qq.com" class="btn btn-primary">2928236242@qq.com</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 页脚 ============ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 袁宝珠. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="#" aria-label="GitHub">GitHub</a>
+        <a href="#" aria-label="微博 / X">社交</a>
+        <a href="mailto:2928236242@qq.com" aria-label="邮箱">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
