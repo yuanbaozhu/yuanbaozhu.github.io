@@ -1604,8 +1604,8 @@ section#works > div.container > div.works-grid > article.work-card:nth-child(3) 
   z-index: 1;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  padding: 10px;
+  object-fit: cover;
+  object-position: top center;
 }
 
 /* ==========================================================
@@ -4428,5 +4428,13 @@ body.home .about-avatar {
 @media (prefers-reduced-motion: reduce) {
   .ocean-ripple { display: none; }
   body.home .work-link { transform: none; }
+}
+
+/* ============================================================
+   《维瑞蒂》页：移除侧边人物概念图后，介绍文字占满整行
+   ============================================================ */
+.wrd-char {
+  grid-template-columns: 1fr;
+  gap: 0;
 }
 
