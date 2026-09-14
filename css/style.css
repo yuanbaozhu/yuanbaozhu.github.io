@@ -4438,3 +4438,31 @@ body.home .about-avatar {
   gap: 0;
 }
 
+
+/* ============ work-6: AICG 项目展示组件 ============ */
+.cs-gallery {
+  margin: 2rem 0 1.5rem;
+}
+.cs-video {
+  margin: 2rem 0 1.5rem;
+  text-align: center;
+}
+.cs-video video {
+  width: 100%;
+  max-width: 720px;
+  border-radius: 12px;
+  border: 1px solid var(--border, rgba(126, 188, 204, 0.22));
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+.cs-video figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--text-muted, #92b6c0);
+}
+.cs-note--interrupt {
+  border-left: 3px solid var(--accent, #2e9d8f);
+  background: var(--accent-soft, rgba(88, 194, 176, 0.16));
+  padding: 0.9rem 1.2rem;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.88rem;
+}
