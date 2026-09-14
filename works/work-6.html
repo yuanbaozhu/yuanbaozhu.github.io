@@ -98,6 +98,42 @@
         <p class="cs-note">
           这部分能力和我前面的 AIGC 编导脚本集是连在一起的。我不是只写脚本，也理解脚本之后怎么变成画面、怎么剪成成片、怎么用 AI 辅助生产。
         </p>
+
+        <!-- AICG 项目分镜展示 -->
+        <div class="gallery cs-gallery">
+          <figure class="gallery-item gallery-item--feature">
+            <img src="../images/aicg-shot-01.jpg" alt="AIGC 分镜 01 · 跑道奔跑" />
+            <figcaption><strong>分镜 01</strong>操场跑道 · 三人奔跑 · 青春动势开场</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="../images/aicg-shot-02.png" alt="AIGC 分镜 02 · 电脑室" />
+            <figcaption><strong>分镜 02</strong>电脑室 · 课间互动 · 人物关系建立</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="../images/aicg-shot-03.webp" alt="AIGC 分镜 03 · 低头看手机" />
+            <figcaption><strong>分镜 03</strong>特写 · 低头看手机 · 情绪转折</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="../images/aicg-shot-04.jpg" alt="AIGC 分镜 04 · 水母馆" />
+            <figcaption><strong>分镜 04</strong>水母馆 · 蓝色柔光 · 氛围画面</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="../images/aicg-shot-05.webp" alt="AIGC 分镜 05 · 走廊侧光" />
+            <figcaption><strong>分镜 05</strong>走廊侧光 · 人物剪影 · 故事结尾</figcaption>
+          </figure>
+        </div>
+
+        <!-- 毕业季视频 -->
+        <figure class="cs-video">
+          <video controls preload="metadata" playsinline>
+            <source src="../media/biyeji.mp4" type="video/mp4" />
+          </video>
+          <figcaption>毕业季 · 视频作品</figcaption>
+        </figure>
+
+        <p class="cs-note cs-note--interrupt">
+          该 AIGC 项目因业务调整中断，最终未完成。以上为过程中产出的部分视觉素材与成果。
+        </p>
       </section>
 
       <!-- ============ 02 插画约稿与个人创作 ============ -->
@@ -271,6 +307,13 @@
       </div>
     </div>
   </footer>
+
+  <!-- ============ 灯箱 ============ -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox-close" id="lightboxClose" aria-label="关闭">×</button>
+    <img id="lightboxImg" src="" alt="" />
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
 
   <script src="../js/main.js"></script>
 </body>
