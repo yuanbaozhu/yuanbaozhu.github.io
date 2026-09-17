@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>作品详情 · 袁宝珠作品集</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .art-wrap { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+    .art-back {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      color: var(--text-muted, #92b6c0); text-decoration: none;
+      font-size: 0.92rem; margin-bottom: 1.6rem;
+      transition: color 0.25s ease;
+    }
+    .art-back:hover { color: var(--text, #dcf0f5); }
+    .art-title { font-size: 1.5rem; color: var(--text, #dcf0f5); margin: 0 0 1.4rem; }
+    .art-figure {
+      margin: 0 auto; max-width: 540px;
+      border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--border, rgba(126, 188, 204, 0.22));
+      box-shadow: 0 14px 38px rgba(0, 0, 0, 0.4);
+      background: rgba(8, 30, 42, 0.5);
+    }
+    .art-figure img { display: block; width: 100%; height: auto; }
+    .art-desc {
+      max-width: 540px; margin: 1rem auto 0;
+      color: var(--text-muted, #92b6c0); font-size: 0.92rem; line-height: 1.7;
+    }
+    .art-nav {
+      max-width: 540px; margin: 2rem auto 0;
+      display: flex; justify-content: space-between; gap: 1rem;
+    }
+    .art-nav a {
+      color: var(--text, #dcf0f5); text-decoration: none;
+      font-size: 0.92rem; padding: 0.55rem 1.1rem;
+      border: 1px solid var(--border, rgba(126, 188, 204, 0.22));
+      border-radius: 999px;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+    .art-nav a:hover { background: var(--accent-soft, rgba(88, 194, 176, 0.16)); border-color: var(--accent, #2e9d8f); }
+  </style>
+</head>
+<body class="page-cs">
+  <div class="art-wrap">
+    <a class="art-back" href="work-6.html">← 返回作品页</a>
+    <h1 class="art-title" id="artTitle">作品详情</h1>
+    <figure class="art-figure">
+      <img id="artImg" src="" alt="" />
+    </figure>
+    <p class="art-desc" id="artDesc"></p>
+    <div class="art-nav">
+      <a href="#" id="artPrev">← 上一张</a>
+      <a href="#" id="artNext">下一张 →</a>
+    </div>
+  </div>
+
+  <script src="../js/main.js?v=2"></script>
+  <script>
+    (function () {
+      var works = [
+        { img: 'char-design-03.png',  title: '角色设定 · 白发高踢腿', desc: '白发马尾角色设定，玫红毛绒搭配高踢腿动势，突出力量感与廓形设计。' },
+        { img: 'char-design-04.png',  title: '角色设定 · 兽耳长尾',   desc: '兽耳与长尾角色设定，衬衫领带混搭撞色，缝合线细节强化角色故事感。' },
+        { img: 'char-design-05.png',  title: '角色设定 · 骨骼腿甲',   desc: '骨骼腿甲与爪状红鞋的角色设定，撕裂外套营造暗黑幻想气质。' },
+        { img: 'char-design-01.png',  title: '角色设定 · 绿毛剔骨',   desc: '原创角色的另一版设定稿，探索同角色的不同造型方向。' },
+        { img: 'sketch-dagger-2.png', title: '画稿 · 匕首',           desc: '橙发双马尾角色的匕首主题画稿，青橙撞色与泼墨笔触表现速度感。' },
+        { img: 'illus-egypt.png',     title: '插画 · 埃及风',         desc: '复古埃及风群像插画，完整场景叙事与服饰纹样设计。' },
+        { img: 'sketch-taxi.png',     title: '色彩练习 · 出租车',     desc: '出租车俯视视角的色彩练习，训练光影归纳与大色块概括能力。' },
+        { img: 'illus-red.png',       title: '插画 · 红发',           desc: '红发角色伸手构图的插画，红黑泼墨背景强化画面张力。' },
+        { img: 'char-design-02.png',  title: '插画 · 白发纹身',       desc: '白发角色插画，纹身细节与涂鸦背景相互呼应。' },
+        { img: 'sketch-chibi.jpg',    title: 'Q版练习',               desc: '白发角色的 Q 版练习，街头风穿搭与夸张头身比。' }
+      ];
+      var q = new URLSearchParams(location.search);
+      var i = parseInt(q.get('i'), 10);
+      if (isNaN(i) || i < 0 || i >= works.length) i = 0;
+      var w = works[i];
+      var img = document.getElementById('artImg');
+      img.src = '../images/' + w.img;
+      img.alt = w.title;
+      document.getElementById('artTitle').textContent = w.title;
+      document.getElementById('artDesc').textContent = w.desc;
+      document.title = w.title + ' · 袁宝珠作品集';
+      document.getElementById('artPrev').href = 'art.html?i=' + ((i - 1 + works.length) % works.length);
+      document.getElementById('artNext').href = 'art.html?i=' + ((i + 1) % works.length);
+    })();
+  </script>
+</body>
+</html>

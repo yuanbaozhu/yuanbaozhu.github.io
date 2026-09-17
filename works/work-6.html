@@ -175,6 +175,21 @@
         <p class="cs-note">
           插画约稿让我练习了“按别人需求画”，个人创作让我保持“按自己想法画”。两边都在训练画面能力、风格适应和交付节奏。
         </p>
+
+        <!-- 作品横向滚动廊 -->
+        <div class="cs-strip" id="artStrip">
+          <a class="strip-item" href="art.html?i=0"><img src="../images/char-design-03.png" alt="角色设定 · 白发高踢腿" loading="lazy" /></a>
+          <a class="strip-item" href="art.html?i=1"><img src="../images/char-design-04.png" alt="角色设定 · 兽耳长尾" loading="lazy" /></a>
+          <a class="strip-item" href="art.html?i=2"><img src="../images/char-design-05.png" alt="角色设定 · 骨骼腿甲" loading="lazy" /></a>
+          <a class="strip-item" href="art.html?i=3"><img src="../images/char-design-01.png" alt="角色设定 · 绿毛剔骨" loading="lazy" /></a>
+          <a class="strip-item" href="art.html?i=4"><img src="../images/sketch-dagger-2.png" alt="画稿 · 匕首" loading="lazy" /></a>
+          <a class="strip-item" href="art.html?i=5"><img src="../images/illus-egypt.png" alt="插画 · 埃及风" loading="lazy" /></a>
+          <a class="strip-item" href="art.html?i=6"><img src="../images/sketch-taxi.png" alt="色彩练习 · 出租车" loading="lazy" /></a>
+          <a class="strip-item" href="art.html?i=7"><img src="../images/illus-red.png" alt="插画 · 红发" loading="lazy" /></a>
+          <a class="strip-item" href="art.html?i=8"><img src="../images/char-design-02.png" alt="插画 · 白发纹身" loading="lazy" /></a>
+          <a class="strip-item" href="art.html?i=9"><img src="../images/sketch-chibi.jpg" alt="Q版练习" loading="lazy" /></a>
+        </div>
+        <p class="cs-gallery-caption">以上为个人原创角色（OC）设定、插画作品与日常画稿练习，点击可查看大图。</p>
       </section>
 
       <!-- ============ 03 多平台内容发布 ============ -->
@@ -316,5 +331,25 @@
   </div>
 
   <script src="../js/main.js"></script>
+  <script>
+    /* 作品廊：从左向右缓慢自动滚动，悬停暂停 */
+    (function () {
+      var strip = document.getElementById('artStrip');
+      if (!strip) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var paused = false;
+      strip.addEventListener('pointerenter', function () { paused = true; });
+      strip.addEventListener('pointerleave', function () { paused = false; });
+      strip.addEventListener('touchstart', function () { paused = true; }, { passive: true });
+      function tick() {
+        if (!paused) {
+          strip.scrollLeft += 0.6;
+          if (strip.scrollLeft >= strip.scrollWidth - strip.clientWidth - 1) strip.scrollLeft = 0;
+        }
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    })();
+  </script>
 </body>
 </html>

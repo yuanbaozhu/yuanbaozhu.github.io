@@ -2,7 +2,7 @@
 const navbar = document.getElementById('navbar');
 
 function onScroll() {
-  navbar.classList.toggle('scrolled', window.scrollY > 8);
+  if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 8);
 }
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
@@ -11,20 +11,22 @@ onScroll();
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 
-navToggle.addEventListener('click', () => {
-  const isOpen = navLinks.classList.toggle('open');
-  navToggle.classList.toggle('open', isOpen);
-  navToggle.setAttribute('aria-expanded', String(isOpen));
-});
-
-// 点击菜单项后收起移动端菜单
-navLinks.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    navToggle.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', String(isOpen));
   });
-});
+
+  // 点击菜单项后收起移动端菜单
+  navLinks.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
 
 // ============ 作品卡片滚动入场 ============
 const cards = document.querySelectorAll('.work-card');
