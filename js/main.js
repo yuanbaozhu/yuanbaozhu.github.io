@@ -165,6 +165,7 @@ if (lightbox) {
   video.loop = true;
   video.preload = 'none';
   video.poster = assetBase + 'images/ocean-poster.jpg';
+  video.addEventListener('playing', () => video.classList.add('is-live'), { once: true });
   bg.appendChild(video);
   document.body.appendChild(bg);
 
@@ -176,18 +177,12 @@ if (lightbox) {
     window.innerWidth > 760;
 
   if (canPlayVideo) {
-    /* 首屏加载完成后再拉取背景视频，避免和首屏资源抢带宽 */
+    /* 首屏加载完成后再延后一点拉取背景视频，避免和首屏资源抢带宽 */
     const startVideo = () => {
-      video.src = assetBase + 'media/ocean-coral-720.mp4';
+      video.src = assetBase + 'media/ocean-sardines-540.mp4';
       video.play().catch(() => {});
     };
-    const idle = () => {
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(startVideo, { timeout: 1500 });
-      } else {
-        setTimeout(startVideo, 400);
-      }
-    };
+    const idle = () => setTimeout(startVideo, 1200);
     if (document.readyState === 'complete') idle();
     else window.addEventListener('load', idle, { once: true });
   }
@@ -339,6 +334,9 @@ if (lightbox) {
       });
     });
 
+    let rafId = 0;
+    let running = false;
+
     function floatTick(now) {
       const t = now / 1000;
       cards.forEach((c) => {
@@ -359,8 +357,33 @@ if (lightbox) {
         s.setProperty('--tx', c.tx.toFixed(2) + 'px');
         s.setProperty('--ty', c.ty.toFixed(2) + 'px');
       });
-      requestAnimationFrame(floatTick);
+      if (running) rafId = requestAnimationFrame(floatTick);
     }
-    requestAnimationFrame(floatTick);
+
+    function startFloat() {
+      if (running) return;
+      running = true;
+      rafId = requestAnimationFrame(floatTick);
+    }
+    function stopFloat() {
+      running = false;
+      cancelAnimationFrame(rafId);
+    }
+
+    /* 只在作品区进入视口时才跑漂浮动画，首屏和滚走后不占用 CPU */
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(
+        (entries) => entries.forEach((entry) => (entry.isIntersecting ? startFloat() : stopFloat())),
+        { rootMargin: '150px 0px' }
+      );
+      io.observe(grid);
+    } else {
+      startFloat();
+    }
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopFloat();
+      else if (grid.getBoundingClientRect().top < window.innerHeight + 150) startFloat();
+    });
   }
 })();
