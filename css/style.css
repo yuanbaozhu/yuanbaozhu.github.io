@@ -4119,7 +4119,11 @@ body.home .work-card:hover {
   height: 100%;
   object-fit: cover;
   transform: scale(1.08) translate3d(calc(var(--vmx, 0) * -14px), calc(var(--vmy, 0) * -10px), 0);
-  transition: opacity 0.5s ease;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.ocean-video-bg video.is-live {
+  opacity: 1;
 }
 .ocean-video-bg::after {
   content: "";
