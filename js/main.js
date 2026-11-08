@@ -152,45 +152,54 @@ if (lightbox) {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isCoarse = window.matchMedia('(pointer: coarse)').matches;
 
-  /* ---------- 1. 全站深海视频背景（循环播放列表） ---------- */
+  /* ---------- 1. 全站深海视频背景（单段无缝循环 · 延迟加载） ---------- */
   const isSubpage = location.pathname.indexOf('/works/') !== -1;
-  const mediaBase = isSubpage ? '../media/' : 'media/';
-  const clips = ['ocean-sardines.mp4', 'ocean-coral.mp4'];
+  const assetBase = isSubpage ? '../' : '';
 
   const bg = document.createElement('div');
   bg.className = 'ocean-video-bg';
   bg.setAttribute('aria-hidden', 'true');
   const video = document.createElement('video');
   video.muted = true;
-  video.autoplay = true;
   video.playsInline = true;
-  video.preload = 'auto';
-  video.src = mediaBase + clips[0];
+  video.loop = true;
+  video.preload = 'none';
+  video.poster = assetBase + 'images/ocean-poster.jpg';
   bg.appendChild(video);
   document.body.appendChild(bg);
 
-  let clipIndex = 0;
-  function playClip(i) {
-    bg.classList.add('is-switching');
-    setTimeout(() => {
-      video.src = mediaBase + clips[i];
-      video.load();
+  /* 手机 / 省流 / 降低动效：只显示封面图，不加载视频 */
+  const canPlayVideo =
+    !reduceMotion &&
+    !isCoarse &&
+    !(navigator.connection && navigator.connection.saveData) &&
+    window.innerWidth > 760;
+
+  if (canPlayVideo) {
+    /* 首屏加载完成后再拉取背景视频，避免和首屏资源抢带宽 */
+    const startVideo = () => {
+      video.src = assetBase + 'media/ocean-coral-720.mp4';
       video.play().catch(() => {});
-      const onReady = () => {
-        bg.classList.remove('is-switching');
-        video.removeEventListener('canplay', onReady);
-      };
-      video.addEventListener('canplay', onReady);
-    }, 500);
+    };
+    const idle = () => {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(startVideo, { timeout: 1500 });
+      } else {
+        setTimeout(startVideo, 400);
+      }
+    };
+    if (document.readyState === 'complete') idle();
+    else window.addEventListener('load', idle, { once: true });
   }
-  video.addEventListener('ended', () => {
-    clipIndex = (clipIndex + 1) % clips.length;
-    playClip(clipIndex);
+
+  /* 切到后台时暂停，回到前台再播，避免持续占用 CPU / GPU */
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      video.pause();
+    } else if (video.src) {
+      video.play().catch(() => {});
+    }
   });
-  video.addEventListener('error', () => {
-    /* 视频缺失时保留深海底色，不中断浏览 */
-  });
-  video.play().catch(() => {});
 
   /* 视频层鼠标视差（Live2D 感，全站跟随） */
   if (!reduceMotion && !isCoarse) {

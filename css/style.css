@@ -60,9 +60,7 @@ ul {
   right: 0;
   height: var(--nav-height);
   z-index: 100;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.82);
   border-bottom: 1px solid transparent;
   transition: border-color 0.3s ease, background 0.3s ease;
 }
@@ -853,8 +851,6 @@ section#home {
   gap: 16px;
   padding: 48px 24px;
   background: rgba(0, 0, 0, 0.93);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
 }
 
 .lightbox[hidden] {
@@ -1856,9 +1852,7 @@ section#works > div.container > div.works-grid > article.work-card:nth-child(3) 
 
 /* 页面内容容器叠一层浅色半透明保证可读性 */
 .page-hszw .detail > .container {
-  background: rgba(6, 16, 13, 0.55);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgba(6, 16, 13, 0.82);
   border-radius: 14px;
   border: 1px solid rgba(150, 180, 160, 0.12);
   padding: 36px 40px;
@@ -1921,9 +1915,7 @@ section#works > div.container > div.works-grid > article.work-card:nth-child(3) 
 
 /* 页面容器叠纸感 */
 .page-daily .detail > .container {
-  background: rgba(251, 251, 232, 0.85);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(251, 251, 232, 0.95);
   border-radius: 12px;
   border: 1px solid rgba(62, 90, 28, 0.12);
   padding: 36px 40px;
@@ -1996,9 +1988,7 @@ section#works > div.container > div.works-grid > article.work-card:nth-child(3) 
 
 /* 导航栏在本页下 */
 .page-daily .navbar {
-  background: rgba(240, 249, 176, 0.88);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(240, 249, 176, 0.95);
   border-bottom: 1px solid var(--daily-mint-deep);
 }
 .page-daily .nav-logo,
@@ -2269,9 +2259,7 @@ section#works > div.container > div.works-grid > article.work-card:nth-child(3) 
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(20, 28, 14, 0.88);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(20, 28, 14, 0.94);
 }
 .daily-lightbox[hidden] { display: none; }
 .daily-lightbox-img {
@@ -2392,9 +2380,7 @@ section#works > div.container > div.works-grid > article.work-card:nth-child(3) 
     #05060a;
 }
 .page-et .detail > .container {
-  background: rgba(8, 10, 17, 0.62);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgba(8, 10, 17, 0.86);
   border: 1px solid rgba(140, 160, 200, 0.1);
   border-radius: 16px;
   padding: 40px 44px;
@@ -2976,9 +2962,7 @@ section#works > div.container > div.works-grid > article.work-card:nth-child(5) 
     #0c0a09;
 }
 .page-cs .detail > .container {
-  background: rgba(18, 14, 12, 0.7);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgba(18, 14, 12, 0.86);
   border: 1px solid rgba(200, 160, 120, 0.1);
   border-radius: 16px;
   padding: 40px 44px;
@@ -4126,6 +4110,7 @@ body.home .work-card:hover {
   overflow: hidden;
   pointer-events: none;
   background:
+    url("../images/ocean-poster.jpg") center / cover no-repeat,
     radial-gradient(120% 90% at 50% 0%, rgba(31, 116, 148, 0.5) 0%, transparent 60%),
     linear-gradient(180deg, #0a3a52 0%, #06293c 48%, #02101a 100%);
 }
@@ -4135,9 +4120,7 @@ body.home .work-card:hover {
   object-fit: cover;
   transform: scale(1.08) translate3d(calc(var(--vmx, 0) * -14px), calc(var(--vmy, 0) * -10px), 0);
   transition: opacity 0.5s ease;
-  will-change: transform;
 }
-.ocean-video-bg.is-switching video { opacity: 0; }
 .ocean-video-bg::after {
   content: "";
   position: absolute;
@@ -4159,7 +4142,7 @@ body.home {
 }
 body.home .live-bg { display: none; } /* 旧水彩图片背景层隐藏，由视频接管 */
 body.home .navbar {
-  background: rgba(3, 15, 25, 0.55);
+  background: rgba(3, 15, 25, 0.78);
 }
 body.home .navbar.scrolled {
   border-bottom-color: rgba(126, 188, 204, 0.18);
@@ -4242,8 +4225,7 @@ body.home .live-scroll span {
   background: linear-gradient(180deg, #7fe0cf, transparent);
 }
 body.home .work-card {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(8, 30, 42, 0.82);
 }
 body.home .work-card:hover {
   border-color: rgba(126, 224, 207, 0.45);
@@ -4334,10 +4316,8 @@ body.home .about-avatar {
 .page-hszw .detail > .container,
 .page-et .detail > .container,
 .page-cs .detail > .container {
-  background: rgba(6, 24, 34, 0.66);
+  background: rgba(6, 24, 34, 0.86);
   border: 1px solid rgba(126, 188, 204, 0.2);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
 }
 
 /* 水彩晕染装饰隐藏（不符合写实风格） */
@@ -4459,14 +4439,6 @@ body.home .about-avatar {
   font-size: 0.85rem;
   color: var(--text-muted, #92b6c0);
 }
-.cs-note--interrupt {
-  border-left: 3px solid var(--accent, #2e9d8f);
-  background: var(--accent-soft, rgba(88, 194, 176, 0.16));
-  padding: 0.9rem 1.2rem;
-  border-radius: 0 8px 8px 0;
-  font-size: 0.88rem;
-}
-
 /* ============ work-6: 画稿横向滚动条带 ============ */
 .cs-strip {
   display: flex;
